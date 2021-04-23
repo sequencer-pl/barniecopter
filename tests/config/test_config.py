@@ -45,3 +45,23 @@ class ConfigTest(TestCase):
 
         # then
         self.assertEqual(expected, configs)
+
+    @mock.patch('config.config.ConfigParser.read_config')
+    def test_read_configs_add_nested_values_instead_of_override_it(self, read_config):
+        # given
+        config_content = {'HEAD': {'public': 'value', 'secret': ''}}
+        secret_content = {'HEAD': {'secret': 'password'}}
+        read_config.side_effect = [config_content, secret_content]
+        expected = {'HEAD': {'public': 'value', 'secret': 'password'}}
+        cp = ConfigParser(['config.yaml', 'secret.yaml'])
+
+        # when
+        configs = cp.read_configs()
+
+        # then
+        self.assertEqual(expected, configs)
+
+    # TODO
+    # def test_validate_configs_raise_config_validation_error_if_lack_of_mandatory_keys(self):
+        # given
+        # TODO

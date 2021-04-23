@@ -1,4 +1,5 @@
 import yaml
+from mergedeep import merge
 
 
 class ConfigParser:
@@ -9,7 +10,8 @@ class ConfigParser:
         configs = {}
         for file in self.config_files:
             cnf = self.read_config(file)
-            configs.update(cnf)
+            merge(configs, configs, cnf)
+        # TODO self.validate(configs)
         return configs
 
     @staticmethod
