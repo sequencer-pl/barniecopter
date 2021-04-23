@@ -38,3 +38,7 @@ db.sqlite3*
 
 # Virtualenvs
 venv
+
+# configs
+config/config.yaml
+config/secrets.yaml
