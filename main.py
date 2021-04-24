@@ -2,7 +2,7 @@ import logging
 
 from config.config import ConfigParser
 from logger.logger import logging_setup
-from net.datasources import TAAPI
+from net.datasources import TAAPI, CMC
 
 
 def process(configs):
@@ -12,6 +12,10 @@ def process(configs):
         taapi = TAAPI(config)
         indicator = taapi.get_indicator_data()
         logging.debug(f"Indicator data: {indicator}")
+
+        cmc = CMC(config)
+        coin = cmc.get_price_and_volume()
+        logging.debug(f"{name} in CMC: {coin}")
 
 
 def run():
