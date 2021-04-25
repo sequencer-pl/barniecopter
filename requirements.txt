@@ -1,5 +1,6 @@
 ## !! Could not determine repository location
 barniecopter==0.1.0
+callee==0.3.1
 certifi==2020.12.5
 chardet==4.0.0
 idna==2.10
