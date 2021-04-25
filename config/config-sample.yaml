@@ -1,0 +1,12 @@
+BTC:
+  TAAPI:
+    base_url: 'https://api.taapi.io/'
+    exchange: 'binance'
+    indicator: 'macd'
+    symbol: 'BTC/USDT'
+    interval: '1h'
+
+  CMC:
+    base_url: 'https://pro-api.coinmarketcap.com'
+    endpoint: '/v1/cryptocurrency/quotes/latest'
+    symbol: 'BTC'
