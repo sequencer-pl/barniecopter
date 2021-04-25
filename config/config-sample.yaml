@@ -1,4 +1,5 @@
 BTC:
+
   TAAPI:
     base_url: 'https://api.taapi.io/'
     exchange: 'binance'
